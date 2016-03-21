@@ -30,7 +30,7 @@ public class Main {
         System.out.println("podaj imie ");
 
         BufferedReader enterTheName = new BufferedReader(new InputStreamReader(
-                System.in)); // wczytywanie
+                System.in));
         // imienia
         String loadingTheName;
         loadingTheName = (enterTheName.readLine());
@@ -38,7 +38,7 @@ public class Main {
         System.out.println("podaj nazwisko ");
 
         BufferedReader enterTheSurname = new BufferedReader(
-                new InputStreamReader(System.in)); // wczytywanie
+                new InputStreamReader(System.in));
         // nazwiska
         String loadingTheSurname;
         loadingTheSurname = (enterTheSurname.readLine());
