@@ -1,4 +1,4 @@
-package Biblioteka;
+﻿package Biblioteka;
 
 import java.util.ArrayList;
 import java.io.*;
@@ -9,7 +9,7 @@ public class Main {
     static ArrayList<Ksiazka> ksiazki = new ArrayList<Ksiazka>();
     static ArrayList<Wypozyczenie> wypozyczenia = new ArrayList<Wypozyczenie>();
 
-    public static int wyborMenu() throws NumberFormatException, IOException {
+    public static int ChosenMenu() throws NumberFormatException, IOException {
 
         System.out
                 .println("\n1 Dodaj czytelnika\n2 Usun czytelnika\n3 Wyswietl czytelnikow\n4 Dodaj ksiazke\n5 Usun ksiazke\n"
@@ -17,47 +17,47 @@ public class Main {
 
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
-        int wybor = 0;
+        int choice = 0;
 
-        wybor = Integer.parseInt(in.readLine());
+        choice = Integer.parseInt(in.readLine());
 
-        return wybor;
+        return choice;
     }
 
-    public static void dodawanieCzytelnika() throws IOException {
+    public static void addingUser() throws IOException {
 
         System.out.println("wybrales opcje: 1 \n");
         System.out.println("podaj imie ");
 
-        BufferedReader podaj_imie = new BufferedReader(new InputStreamReader(
+        BufferedReader enterTheName = new BufferedReader(new InputStreamReader(
                 System.in)); // wczytywanie
         // imienia
-        String wczytane_imie;
-        wczytane_imie = (podaj_imie.readLine());
+        String loadingTheName;
+        loadingTheName = (enterTheName.readLine());
 
         System.out.println("podaj nazwisko ");
 
-        BufferedReader podaj_nazwisko = new BufferedReader(
+        BufferedReader enterTheSurname = new BufferedReader(
                 new InputStreamReader(System.in)); // wczytywanie
         // nazwiska
-        String wczytane_nazwisko;
-        wczytane_nazwisko = (podaj_nazwisko.readLine());
+        String loadingTheSurname;
+        loadingTheSurname = (enterTheSurname.readLine());
 
-        int wczytane_numer_karty;
+        int lodingCardNumber;
 
-        wczytane_numer_karty = (czytelnicy.size());
+        lodingCardNumber = (czytelnicy.size());
 
-        System.out.println("wczytales imie " + wczytane_imie
-                + " wczytales nazwisko " + wczytane_nazwisko
-                + " podales numer karty " + wczytane_numer_karty);
+        System.out.println("wczytales imie " + loadingTheName
+                + " wczytales nazwisko " + loadingTheSurname
+                + " podales numer karty " + lodingCardNumber);
 
-        Czytelnik dodanie_czytelnika = new Czytelnik(wczytane_imie,
-                wczytane_nazwisko, wczytane_numer_karty); //
-        czytelnicy.add(dodanie_czytelnika);
+        Czytelnik addingTheUser = new Czytelnik(loadingTheName,
+                loadingTheSurname, lodingCardNumber); //
+        czytelnicy.add(addingTheUser);
 
     }
 
-    public static void usuwanieCzytelnika() throws NumberFormatException,
+    public static void removeTheUser() throws NumberFormatException,
             IOException {
 
         System.out.println("wybrales opcje: 2 \n");
@@ -69,13 +69,13 @@ public class Main {
 
             System.out.println("wybierz czytelnika o numerze (index): ");
 
-            BufferedReader numer_karty_do_usuniecia = new BufferedReader(
+            BufferedReader removeCardNumber = new BufferedReader(
                     new InputStreamReader(System.in));
-            int wybrana_karta_do_usuniecia;
-            wybrana_karta_do_usuniecia = Integer
-                    .parseInt(numer_karty_do_usuniecia.readLine());
+            int removeTheCardNumber;
+            removeTheCardNumber = Integer
+                    .parseInt(removeCardNumber.readLine());
 
-            if (wybrana_karta_do_usuniecia < 0) {
+            if (removeTheCardNumber < 0) {
                 System.out.println("za mala liczba");
 
             }
@@ -84,8 +84,8 @@ public class Main {
                 System.out.println("pusta lista");
             }
 
-            else if (wybrana_karta_do_usuniecia <= czytelnicy.size()) {
-                czytelnicy.remove(wybrana_karta_do_usuniecia);
+            else if (removeTheCardNumber <= czytelnicy.size()) {
+                czytelnicy.remove(removeTheCardNumber);
 
             } else {
                 System.out.println("podales za duzy numer");
@@ -94,7 +94,7 @@ public class Main {
 
     }
 
-    public static void wyswietlenieCzytelnikow() {
+    public static void displayUsers() {
 
         System.out.println("wybrales opcje: 3 \n");
         System.out.println("lista czytelnikow: \n");
@@ -105,61 +105,61 @@ public class Main {
         }
     }
 
-    public static void dodawanieKsiazki() throws IOException {
+    public static void addingBooks() throws IOException {
 
         System.out.println("wybrales opcje: 4 \n");
         System.out.println("podaj autora ");
 
-        BufferedReader podaj_autora = new BufferedReader(new InputStreamReader(
+        BufferedReader enterTheAuthor = new BufferedReader(new InputStreamReader(
                 System.in)); // wczytywanie
         // autora
-        String wczytanie_autora;
-        wczytanie_autora = (podaj_autora.readLine());
+        String loadingTheAuthor;
+        loadingTheAuthor = (enterTheAuthor.readLine());
 
         System.out.println("podaj tytul ");
 
-        BufferedReader podaj_tytul = new BufferedReader(new InputStreamReader(
+        BufferedReader enterTheTitle = new BufferedReader(new InputStreamReader(
                 System.in)); // wczytywanie
         // tytulu
-        String wczytanie_tytulu;
-        wczytanie_tytulu = (podaj_tytul.readLine());
+        String loadingTheTitle;
+        loadingTheTitle = (enterTheTitle.readLine());
 
         System.out.println("podaj isbn ");
 
-        BufferedReader podaj_isbn = new BufferedReader(new InputStreamReader(
+        BufferedReader enterIsbn = new BufferedReader(new InputStreamReader(
                 System.in)); // wczytywanie
         // isbn
-        String wczytanie_isbn;
+        String loadingIsbn;
 
-        wczytanie_isbn = (podaj_isbn.readLine());
+        loadingIsbn = (enterIsbn.readLine());
 
         System.out.println("podaj liczbe egzemplarzy ");
 
-        BufferedReader podaj_liczbe_egzemplarzy = new BufferedReader(
+        BufferedReader enterNumberOfCopies = new BufferedReader(
                 new InputStreamReader(System.in)); // wczytywanie
         // listy
         // egzemplarzy
-        int wczytanie_liczby_egzemplarzy;
+        int loadingNumberOfCopies;
 
-        wczytanie_liczby_egzemplarzy = Integer
-                .parseInt(podaj_liczbe_egzemplarzy.readLine());
+        loadingNumberOfCopies = Integer
+                .parseInt(enterNumberOfCopies.readLine());
 
         System.out.println("podaj liczbe wypozyczonych egzemplarzy ");
 
-        System.out.println("wczytales autora " + wczytanie_autora
-                + " podales tytul: " + wczytanie_tytulu + " podales isbn "
-                + wczytanie_isbn + " podales liczbe egzemplarzy : "
-                + wczytanie_liczby_egzemplarzy);
+        System.out.println("wczytales autora " + loadingTheAuthor
+                + " podales tytul: " + loadingTheTitle + " podales isbn "
+                + loadingIsbn + " podales liczbe egzemplarzy : "
+                + loadingNumberOfCopies);
 
-        Ksiazka dodanie_ksiazki = new Ksiazka(wczytanie_autora,
-                wczytanie_tytulu, wczytanie_isbn, wczytanie_liczby_egzemplarzy,
+        Ksiazka addingTheBook = new Ksiazka(loadingTheAuthor,
+                loadingTheTitle, loadingIsbn, loadingNumberOfCopies,
                 0); // zero - stan
         // poczatkowy
-        ksiazki.add(dodanie_ksiazki);
+        ksiazki.add(addingTheBook);
 
     }
 
-    public static void UsuwanieKsiazki() throws NumberFormatException,
+    public static void removeBooks() throws NumberFormatException,
             IOException {
 
         System.out.println("wybrales opcje: 5 \n");
@@ -171,13 +171,13 @@ public class Main {
 
             System.out.println("wybierz ksiazke o numerze (index): ");
 
-            BufferedReader numer_karty_do_usuniecia = new BufferedReader(
+            BufferedReader removeCardNumber = new BufferedReader(
                     new InputStreamReader(System.in));
-            int wybrana_karta_do_usuniecia;
-            wybrana_karta_do_usuniecia = Integer
-                    .parseInt(numer_karty_do_usuniecia.readLine());
+            int removeTheCardNumber;
+            removeTheCardNumber = Integer
+                    .parseInt(removeCardNumber.readLine());
 
-            if (wybrana_karta_do_usuniecia < 0) {
+            if (removeTheCardNumber < 0) {
                 System.out.println("za mala liczba");
 
             }
@@ -186,8 +186,8 @@ public class Main {
                 System.out.println("pusta lista");
             }
 
-            else if (wybrana_karta_do_usuniecia <= ksiazki.size()) {
-                ksiazki.remove(wybrana_karta_do_usuniecia);
+            else if (removeTheCardNumber <= ksiazki.size()) {
+                ksiazki.remove(removeTheCardNumber);
 
             } else {
                 System.out.println("podales za duzy numer");
@@ -196,11 +196,11 @@ public class Main {
 
     }
 
-    public static void wyswietlenieKsiazki() {
+    public static void displayBook() {
 
         System.out.println("wybrales opcje: 6 \n");
-        int wielkoscTablicyksiazek = ksiazki.size();
-        if (wielkoscTablicyksiazek > 0) {
+        int sizeOfTableBooks = ksiazki.size();
+        if (sizeOfTableBooks > 0) {
 
             System.out.println("lista ksiazek: ");
 
@@ -213,68 +213,68 @@ public class Main {
         }
     }
 
-    public static void dodanieWypozyczenia() throws NumberFormatException,
+    public static void addingBorrow() throws NumberFormatException,
             IOException {
         System.out.println("wybrales opcje: 7 \n");
         System.out.println("podaj pozycje (na liscie) ksiazki ");
 
-        BufferedReader podaj_ksiazke = new BufferedReader(
+        BufferedReader chosenBook = new BufferedReader(
                 new InputStreamReader(System.in)); // wczytywanie
         // ksiazke
-        int sprawdzListeKsiazek = ksiazki.size();
-        int sprawdzListeCzytelnikow = czytelnicy.size();
+        int checkTheListOfBooks = ksiazki.size();
+        int checkTheListOfUsers = czytelnicy.size();
 
-        int wczytana_ksiazka;
-        wczytana_ksiazka = Integer.parseInt(podaj_ksiazke.readLine());
+        int loadedBook;
+        loadedBook = Integer.parseInt(chosenBook.readLine());
 
-        if (wczytana_ksiazka < 0) {
+        if (loadedBook < 0) {
             System.out.println("za maly numer ksiazki!");
         }
 
         else {
 
-            if (wczytana_ksiazka > (sprawdzListeKsiazek - 1)) {
+            if (loadedBook > (checkTheListOfBooks - 1)) {
                 System.out.println("za duzy numer ksiazki");
             } else {
 
                 System.out.println("podaj pozycje (na liscie) czytelnika");
 
-                BufferedReader podaj_czytelnika = new BufferedReader(
+                BufferedReader enterTheUser = new BufferedReader(
                         new InputStreamReader(System.in)); // wczytywanie
                 // czytelnika
 
-                int wczytanie_czytelnika;
-                wczytanie_czytelnika = Integer.parseInt(podaj_czytelnika
+                int loadedTheUser;
+                loadedTheUser = Integer.parseInt(enterTheUser
                         .readLine());
 
-                if (wczytanie_czytelnika < 0) {
+                if (loadedTheUser < 0) {
                     System.out.println("za maly numer czytelnika!");
                 } else {
 
-                    if (wczytanie_czytelnika > (sprawdzListeCzytelnikow - 1)) {
+                    if (loadedTheUser > (checkTheListOfUsers - 1)) {
                         System.out.println("za duzy numer czytelnika");
                     } else {
 
-                        Ksiazka pierwotnaKsiazka = ksiazki
-                                .get(wczytana_ksiazka);
+                        Ksiazka primaryBook = ksiazki
+                                .get(loadedBook);
 
-                        int obecnaLiczbawypozyczonychEgzemplarzy = pierwotnaKsiazka
+                        int obecnaLiczbawypozyczonychEgzemplarzy = primaryBook
                                 .getLiczna_wypozyczonych_egzemplarzy();
-                        int obecnaLiczbaEgzemplarzy = pierwotnaKsiazka
+                        int obecnaLiczbaEgzemplarzy = primaryBook
                                 .getLiczba_egzemplarzy();
 
                         if (obecnaLiczbaEgzemplarzy > obecnaLiczbawypozyczonychEgzemplarzy) {
-                            pierwotnaKsiazka
+                            primaryBook
                                     .setLiczna_wypozyczonych_egzemplarzy(obecnaLiczbawypozyczonychEgzemplarzy + 1);
 
-                            Wypozyczenie dodanie_wypozyczenia = new Wypozyczenie(
-                                    ksiazki.get(wczytana_ksiazka),
-                                    czytelnicy.get(wczytanie_czytelnika));
-                            wypozyczenia.add(dodanie_wypozyczenia);
+                            Wypozyczenie addingTheBorrowing = new Wypozyczenie(
+                                    ksiazki.get(loadedBook),
+                                    czytelnicy.get(loadedTheUser));
+                            wypozyczenia.add(addingTheBorrowing);
 
                             System.out.println("Dodales: "
-                                    + ksiazki.get(wczytana_ksiazka)
-                                    + czytelnicy.get(wczytanie_czytelnika));
+                                    + ksiazki.get(loadedBook)
+                                    + czytelnicy.get(loadedTheUser));
                         }
 
                         else {
@@ -289,7 +289,7 @@ public class Main {
 
     }
 
-    public static void usuwanieWypozyczenia() throws NumberFormatException,
+    public static void removeTheBorrowing() throws NumberFormatException,
             IOException {
 
         System.out.println("wybrales opcje: 8 \n");
@@ -300,10 +300,10 @@ public class Main {
 
         else {
 
-            int wielkosc_listy;
-            wielkosc_listy = wypozyczenia.size();
+            int listSize;
+            listSize = wypozyczenia.size();
 
-            if (wielkosc_listy != 0) {
+            if (listSize != 0) {
 
                 for (int i = 0; i < wypozyczenia.size(); i++) {
                     System.out.println(" " + i + wypozyczenia.get(i));
@@ -315,34 +315,34 @@ public class Main {
 
             System.out.println("wybierz wypozyczenie o numerze (index): ");
 
-            BufferedReader numer_wypozyczenia_do_usuniecia = new BufferedReader(
+            BufferedReader numberOfBorrowing = new BufferedReader(
                     new InputStreamReader(System.in));
 
-            int wybrane_wypozyczenie_do_usuniecia;
-            int wielkoscListyWypozyczenDoUsuniecia;
-            wielkoscListyWypozyczenDoUsuniecia = wypozyczenia.size();
+            int chosenBorrowingToRemove;
+            int sizeOfRemoveList;
+            sizeOfRemoveList = wypozyczenia.size();
 
-            wybrane_wypozyczenie_do_usuniecia = Integer
-                    .parseInt(numer_wypozyczenia_do_usuniecia.readLine());
+            chosenBorrowingToRemove = Integer
+                    .parseInt(numberOfBorrowing.readLine());
 
-            if (wybrane_wypozyczenie_do_usuniecia < 0) {
+            if (chosenBorrowingToRemove < 0) {
                 System.out.println("za maly numer, bo "
-                        + wybrane_wypozyczenie_do_usuniecia + "<"
-                        + wielkoscListyWypozyczenDoUsuniecia);
+                        + chosenBorrowingToRemove + "<"
+                        + sizeOfRemoveList);
             }
 
             else {
 
-                if (wybrane_wypozyczenie_do_usuniecia > (wielkoscListyWypozyczenDoUsuniecia - 1)) {
+                if (chosenBorrowingToRemove > (sizeOfRemoveList - 1)) {
                     System.out.println("za duza liczba.");
                 }
 
                 else {
-                    if (wybrane_wypozyczenie_do_usuniecia < wypozyczenia.size()) {
+                    if (chosenBorrowingToRemove < wypozyczenia.size()) {
                         System.out.println("usuwasz wypozyczenie: \n"
-                                + wybrane_wypozyczenie_do_usuniecia);
+                                + chosenBorrowingToRemove);
 
-                        wypozyczenia.remove(wybrane_wypozyczenie_do_usuniecia);
+                        wypozyczenia.remove(chosenBorrowingToRemove);
 
                     } else {
                         System.out.println("podales zly numer wypozyczenia");
@@ -353,13 +353,13 @@ public class Main {
 
     }
 
-    public static void wyswietlenieWypozyczenia() {
+    public static void displayBorrowing() {
         System.out.println("wybrales opcje: 9 \n");
         System.out.println("lista wypozyczen: ");
-        int wielkosc_listy;
-        wielkosc_listy = wypozyczenia.size();
+        int listSize;
+        listSize = wypozyczenia.size();
 
-        if (wielkosc_listy != 0) {
+        if (listSize != 0) {
 
             for (int i = 0; i < wypozyczenia.size(); i++) {
                 System.out.println("\nwypozyczenie numer " + i
@@ -372,32 +372,32 @@ public class Main {
 
     }
 
-    public static void kontoCzytelnika() throws NumberFormatException,
+    public static void userAccount() throws NumberFormatException,
             IOException {
         System.out.println("wybrales opcje: 10 \n");
-        int listaCzytelnikowDoCase10 = czytelnicy.size();
-        if (listaCzytelnikowDoCase10 == 0) {
+        int listOfusers = czytelnicy.size();
+        if (listOfusers == 0) {
             System.out.println("Lista jest pusta");
         } else {
 
             System.out.println("Podaj numer karty do wyswietlenia");
-            BufferedReader podajCzytelnikaDoWyswietlenia = new BufferedReader(
+            BufferedReader enterUserToDisplay = new BufferedReader(
                     new InputStreamReader(System.in));
 
-            int wczytanieCzytelnikaDoWyswietlenia;
-            wczytanieCzytelnikaDoWyswietlenia = Integer
-                    .parseInt(podajCzytelnikaDoWyswietlenia.readLine());
+            int loadingUserToDisplay;
+            loadingUserToDisplay = Integer
+                    .parseInt(enterUserToDisplay.readLine());
 
-            if (wczytanieCzytelnikaDoWyswietlenia > (listaCzytelnikowDoCase10 - 1)) {
+            if (loadingUserToDisplay > (listOfusers - 1)) {
                 System.out.println("za duzy numer czytlnika");
 
             } else {
-                if (wczytanieCzytelnikaDoWyswietlenia < 0) {
+                if (loadingUserToDisplay < 0) {
                     System.out.println("za mały numer czytelnika!");
                 } else {
 
                     System.out.println("wybrales czytelnika o danych: \n"
-                            + czytelnicy.get(wczytanieCzytelnikaDoWyswietlenia)
+                            + czytelnicy.get(loadingUserToDisplay)
                             + "\nOto jego wypozyczenia:");
 
                     if (wypozyczenia.size() > 0) {
@@ -406,21 +406,21 @@ public class Main {
 
                             // uzupelnic wiekszosc kodu
 
-                            Wypozyczenie obiektWypozyczenieUzytkownika = wypozyczenia
+                            Wypozyczenie objectBorrowUser = wypozyczenia
                                     .get(i);
-                            Czytelnik obiektCzytelnikDlaWypozyczenia = obiektWypozyczenieUzytkownika
+                            Czytelnik objectUserBorrow = objectBorrowUser
                                     .getCzytelnik();
-                            int numerKartyWybranegoCzytelnika = obiektCzytelnikDlaWypozyczenia
+                            int numberTheUserCard = objectUserBorrow
                                     .getNumer_karty();
 
-                            if (numerKartyWybranegoCzytelnika == wczytanieCzytelnikaDoWyswietlenia) { // druga
+                            if (numberTheUserCard == loadingUserToDisplay) { // druga
                                 // czesc
                                 // jest
                                 // wpisywana
                                 // z
                                 // klawiatury
                                 System.out.println(i + " "
-                                        + obiektWypozyczenieUzytkownika
+                                        + objectBorrowUser
                                         + "\n\n");
 
                             }
@@ -468,61 +468,61 @@ public class Main {
             wypozyczenia.add(pierwsze);
             wypozyczenia.add(drugie);
 
-            boolean powtorz;
-            powtorz = true;
+            boolean repaet;
+            repaet = true;
 
             do {
 
-                switch (wyborMenu()) {
+                switch (ChosenMenu()) {
 
                     case 1:
 
-                        dodawanieCzytelnika();
+                        addingUser();
                         break;
 
                     case 2:
 
-                        usuwanieCzytelnika();
+                        removeTheUser();
                         break;
 
                     case 3:
-                        wyswietlenieCzytelnikow();
+                        displayUsers();
                         break;
 
                     case 4:
 
-                        dodawanieKsiazki();
+                        addingBooks();
                         break;
 
                     case 5:
 
-                        UsuwanieKsiazki();
+                        removeBooks();
                         break;
 
                     case 6:
-                        wyswietlenieKsiazki();
+                        displayBook();
                         break;
 
                     case 7:
-                        dodanieWypozyczenia();
+                        addingBorrow();
                         break;
 
                     case 8:
 
-                        usuwanieWypozyczenia();
+                        removeTheBorrowing();
                         break;
 
                     case 9:
-                        wyswietlenieWypozyczenia();
+                        displayBorrowing();
                         break;
 
                     case 10:
-                        kontoCzytelnika();
+                        userAccount();
                         break;
 
                     case 0:
                         System.out.println("koniec / see ya");
-                        powtorz = false;
+                        repaet = false;
                         break;
 
                     default:
@@ -530,7 +530,7 @@ public class Main {
                         break;
 
                 }
-            } while (powtorz == true); // w moim standardowym mysleniu to jest
+            } while (repaet == true); // w moim standardowym mysleniu to jest
             // rowna sie "=" / tzn. porownanie
         }
 
