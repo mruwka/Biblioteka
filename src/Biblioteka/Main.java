@@ -5,30 +5,15 @@ import java.io.*;
 
 public class Main {
 
-    static ArrayList<Czytelnik> czytelnicy = new ArrayList<Czytelnik>(); // lista
-    // obiektow
-    // klasy
-    // czytelnik
-    // o
-    // nazwie czytelnicy
-    static ArrayList<Ksiazka> ksiazki = new ArrayList<Ksiazka>(); // lista
-    // obiektow
-    // klasy
-    // ksiazka o
-    // nazwie
-    // ksiazki
-    static ArrayList<Wypozyczenie> wypozyczenia = new ArrayList<Wypozyczenie>(); // lista
-    // obiektow
-    // wypozyczenia
-
-    // czytelnik o nazwie
-    // wypozyczenie
+    static ArrayList<Czytelnik> czytelnicy = new ArrayList<Czytelnik>();
+    static ArrayList<Ksiazka> ksiazki = new ArrayList<Ksiazka>();
+    static ArrayList<Wypozyczenie> wypozyczenia = new ArrayList<Wypozyczenie>();
 
     public static int wyborMenu() throws NumberFormatException, IOException {
 
         System.out
-                .println("\n1 dodaj czytelnika\n2 usun czytelnika\n3 wyswietl czytelnikow\n4 dodaj ksiazke\n5 usun ksiazke\n"
-                        + "6 wyswietl ksiazki\n7 dodaj wypozyczenia\n8 usun wypozyczenia\n9 wyswietl wypozyczenia\n10 Konto Czytelnika\n0 koniec\n\n");
+                .println("\n1 Dodaj czytelnika\n2 Usun czytelnika\n3 Wyswietl czytelnikow\n4 Dodaj ksiazke\n5 Usun ksiazke\n"
+                        + "6 Wyswietl ksiazki\n7 Dodaj wypozyczenia\n8 Usun wypozyczenia\n9 Wyswietl wypozyczenia\n10 Konto Czytelnika\n0 Koniec\n\n");
 
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
